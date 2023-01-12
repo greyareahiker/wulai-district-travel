@@ -34,7 +34,7 @@ export const calcScale = (
 }
 
 export const caleMoveBetween = (scroll: number, withHeight: number) => {
-  return Math.round((scroll / withHeight) * 100) / 2 - 10
+  return (Math.round((scroll / withHeight) * 100) / 100) * 50 - 5
 }
 
 export const calcMoveWith = (
@@ -44,7 +44,7 @@ export const calcMoveWith = (
 ) => {
   if (scroll < changeColorHeight) {
     return (
-      40 -
+      45 -
       (Math.round(
         ((scroll - withHeight) / (changeColorHeight - withHeight)) * 100
       ) /
@@ -77,10 +77,14 @@ export const calcMoveBoa = (
   if (scroll < endHeight) return 35
   if (scroll > hatHeight) return 10
 
+  console.log(
+    "sss",
+    Math.abs(((scroll - endHeight) / (hatHeight - endHeight)) * 100) / 100
+  )
+
   return (
     35 -
     (Math.abs(((scroll - endHeight) / (hatHeight - endHeight)) * 100) / 100) *
-      35 +
-    10
+      25
   )
 }

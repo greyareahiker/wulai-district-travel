@@ -19,11 +19,11 @@ import {
 import { useEffect } from "react"
 
 export const WITH_IMAGE = 17000
-export const CHANGE_COLOR = 20000
-export const BOA_START = 29800
-export const BOA_END = 31000
-export const BOA_HAT = 31300
-export const CLOSEING = 37000
+export const CHANGE_COLOR = 19000
+export const BOA_START = 28000
+export const BOA_END = 29400
+export const BOA_HAT = 29544
+export const CLOSEING = 34900
 
 const WithLion = () => {
   const { scrollY } = useScroll()
@@ -101,7 +101,7 @@ const WithLion = () => {
             alt=""
             style={{
               width: "100px",
-              top: "-2vh",
+              top: 0,
               right: "1vw",
               opacity: scrollY > CHANGE_COLOR && scrollY < BOA_START ? 0.6 : 0,
               transition: "opacity 1s linear",
