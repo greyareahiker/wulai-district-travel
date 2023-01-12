@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.js": "/wulai-district-travel/static/js/main.da2d21ac.js",
+    "static/media/background.png": "/wulai-district-travel/static/media/background.f9f12924d50e0276ace3.png",
+    "static/media/fox.png": "/wulai-district-travel/static/media/fox.b44fbf0cd41d792aa220.png",
+    "static/media/darkboa.png": "/wulai-district-travel/static/media/darkboa.dfd502cf8492cc1b666c.png",
+    "static/media/lightboa.png": "/wulai-district-travel/static/media/lightboa.5d1c2bdd59f17def11a9.png",
+    "static/media/b612.png": "/wulai-district-travel/static/media/b612.f2182bec9d17e5a1096f.png",
+    "static/media/prince.png": "/wulai-district-travel/static/media/prince.f9595c6779b39269995b.png",
+    "index.html": "/wulai-district-travel/index.html",
+    "main.da2d21ac.js.map": "/wulai-district-travel/static/js/main.da2d21ac.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.da2d21ac.js"
+  ]
+}
