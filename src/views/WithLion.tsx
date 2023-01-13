@@ -1,5 +1,4 @@
 import { letter } from "../text"
-import ScrollFadeIn from "./components/ScrollFadeIn"
 import StickyScrollExpandable from "./components/StickyScrollExpandable"
 import useScroll from "./hooks/useScroll.hooks"
 import { MoveImage, Page } from "./WithLion.styled"
@@ -17,60 +16,82 @@ import {
   caleMoveBetween,
 } from "./helper/calcCss.helper"
 import { useEffect } from "react"
+import ScrollPause from "./components/ScrollPause"
 
-export const WITH_IMAGE = 17000
-export const CHANGE_COLOR = 19000
-export const BOA_START = 28000
-export const BOA_END = 29400
-export const BOA_HAT = 29544
-export const CLOSEING = 34900
+export const WITH_IMAGE = 45400
+export const CHANGE_COLOR = 50000
+export const BOA_START = 73000
+export const BOA_END = 74500
+export const BOA_HAT = 76000
+export const CHNAGE_DARK = 80000
+export const CLOSEING = 85000
 
 const WithLion = () => {
   const { scrollY } = useScroll()
 
-  console.log(scrollY)
   useEffect(() => {
-    if (scrollY > 3000) document.title = "With Lion"
+    if (scrollY > 1000) {
+      document.title = "With Lion"
+      const link = document.querySelector(
+        "link[rel*='icon']"
+      ) as HTMLLinkElement
+      link!.href = "/project-a-new-hope/favicon.ico"
+    }
   }, [scrollY])
 
   return (
     <>
-      <Page scroll={scrollY}>
+      <Page>
         <StickyScrollExpandable message={letter.stickyFirst} />
         {letter.textArrayFirst.map((text, index) => (
-          <ScrollFadeIn key={`first-${index}`} message={text} />
+          <ScrollPause key={`first-${index}`} message={text} />
         ))}
-        <ScrollFadeIn
+        <StickyScrollExpandable
           message={letter.textBoldFirst}
-          margin={500}
-          weight={700}
-          fontName="NanumSquareNeo"
+          _height={4000}
+          size={3.2}
         />
+        <ScrollPause message=" " _height={1000} />
         {letter.textArraySecond.map((text, index) => (
-          <ScrollFadeIn key={`second-${index}`} message={text} />
+          <ScrollPause key={`second-${index}`} message={text} />
         ))}
-        <StickyScrollExpandable message={letter.stickySecond} size={2} />
-        {letter.textArrayThird.map((text, index) => (
-          <ScrollFadeIn key={`third-${index}`} message={text} />
-        ))}
-        <ScrollFadeIn
-          message={letter.textBoldSecond}
-          margin={500}
-          weight={700}
-          fontName="NanumSquareNeo"
+        <StickyScrollExpandable
+          message={letter.stickySecond}
+          size={3.2}
+          _height={4000}
         />
+        <ScrollPause message=" " _height={1000} />
+        {letter.textArrayThird.map((text, index) => (
+          <ScrollPause key={`third-${index}`} message={text} />
+        ))}
+        <StickyScrollExpandable
+          message={letter.textBoldSecond}
+          size={3.2}
+          _height={4000}
+        />
+        <ScrollPause message=" " _height={1000} />
         {letter.textArrayFourth.map((text, index) => (
-          <ScrollFadeIn key={`fourth-${index}`} message={text} />
+          <ScrollPause key={`fourth-${index}`} message={text} />
         ))}
-        <StickyScrollExpandable message={" "} />
+        <ScrollPause message={" "} />
         {letter.textArrayFifth.map((text, index) => (
-          <ScrollFadeIn key={`fifth-${index}`} message={text} />
+          <ScrollPause key={`fifth-${index}`} message={text} />
         ))}
-        {letter.textArraySixth.map((text, index) => (
-          <ScrollFadeIn key={`sixth-${index}`} margin={200} message={text} />
-        ))}
-        <StickyScrollExpandable message={letter.stickyThird} size={3} />
-        <StickyScrollExpandable _height={2000} message={letter.stickyForth} />
+        <ScrollPause message={" "} />
+        <div
+          style={{
+            margin: "2rem 6rem",
+            height: "100vh",
+            fontSize: "2rem",
+            fontWeight: "700",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          베로니카, 나랑 결혼해줄래요?
+        </div>
       </Page>
       {scrollY < WITH_IMAGE && (
         <>
@@ -92,7 +113,7 @@ const WithLion = () => {
             src={withyouImg}
             alt=""
             style={{
-              width: "80px",
+              width: "250px",
               left: `${calcMoveWith(scrollY, WITH_IMAGE, CHANGE_COLOR)}vw`,
             }}
           />
@@ -100,10 +121,10 @@ const WithLion = () => {
             src={b612Img}
             alt=""
             style={{
-              width: "100px",
+              width: "200px",
               top: 0,
-              right: "1vw",
-              opacity: scrollY > CHANGE_COLOR && scrollY < BOA_START ? 0.6 : 0,
+              right: "3vw",
+              opacity: scrollY > CHANGE_COLOR && scrollY < BOA_START ? 1 : 0,
               transition: "opacity 1s linear",
             }}
           />
@@ -119,7 +140,7 @@ const WithLion = () => {
               left: "50vw",
               transform: "translate(-50%, -50%)",
               width: `${calcSizeBoa(scrollY, BOA_START, BOA_END)}vw`,
-              opacity: scrollY > BOA_HAT ? 0 : 1,
+              opacity: scrollY > CHNAGE_DARK ? 0 : 1,
               transition: "opacity 0.5s linear",
             }}
           />
@@ -127,11 +148,11 @@ const WithLion = () => {
             src={darkboaImg}
             alt=""
             style={{
-              top: `10vh`,
+              top: `25vh`,
               left: "50vw",
               transform: "translate(-50%, -50%)",
-              width: `80vw`,
-              opacity: scrollY > BOA_HAT && scrollY < CLOSEING ? 0.3 : 0,
+              width: `60vw`,
+              opacity: scrollY > CHNAGE_DARK && scrollY < CLOSEING ? 0.3 : 0,
               transition: "opacity 0.5s linear",
             }}
           />

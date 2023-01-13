@@ -17,7 +17,7 @@ import {
 
 const Main = () => {
   useEffect(() => {
-    document.title = "온천에 오신걸 환영합니다."
+    document.title = "우라이 온천 | 신베이시 정부 관광여행국"
   })
 
   return (
@@ -49,7 +49,7 @@ const Main = () => {
           「미인탕」이라는 명성을 얻었습니다.
         </DescriptionContents>
       </DescriptonConatiner>
-      <LinkButton to="/with-lion">더 알아보기</LinkButton>
+      <LinkButton to="/with-lion">&#x1F517; 더 알아보기</LinkButton>
       <FooterContainer>
         <FooterLeft>
           <FooterTitle>신베이시 정부 관광여행국</FooterTitle>

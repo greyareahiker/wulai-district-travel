@@ -59,7 +59,23 @@ export const DescriptionContents = styled.p`
   line-height: 200%;
 `
 
-export const LinkButton = styled(Link)``
+export const LinkButton = styled(Link)`
+  &:link,
+  &:visited {
+    background-color: white;
+    color: black;
+    border: 2px solid #00c9ff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  &:hover,
+  &:active {
+    background-color: #00c9ff;
+    color: white;
+  }
+`
 
 export const FooterContainer = styled.div`
   display: flex;

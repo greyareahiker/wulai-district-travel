@@ -3,8 +3,8 @@ import { calcOpacity, calcScale } from "../helper/calcCss.helper"
 import { Container, Stickey } from "./StickyScrollExpandable.styled"
 
 const StickyScrollExpandable = ({
-  _height = 1500,
-  size = 4,
+  _height = 5000,
+  size = 6,
   message,
 }: {
   _height?: number
@@ -18,7 +18,7 @@ const StickyScrollExpandable = ({
       <Stickey
         style={{
           opacity: calcOpacity(_height, ref),
-          transform: `scale(${calcScale(_height, ref)})`,
+          transform: `translateY(-50%) scale(${calcScale(_height, ref)})`,
           fontSize: `${size}rem`,
         }}
       >

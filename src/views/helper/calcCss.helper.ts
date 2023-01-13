@@ -7,10 +7,10 @@ export const calcOpacity = (
   const { bottom } = ref.current!.getBoundingClientRect()
 
   if (bottom > ContainerHeight) return 0
-  if (bottom < ContainerHeight / 2) return 1
+  if (bottom < ContainerHeight * 0.75) return 1
 
   return (
-    Math.round(((ContainerHeight - bottom) / (ContainerHeight / 2)) * 1000) /
+    Math.round(((ContainerHeight - bottom) / (ContainerHeight / 4)) * 1000) /
     1000
   )
 }
@@ -24,17 +24,16 @@ export const calcScale = (
   const { bottom } = ref.current!.getBoundingClientRect()
 
   if (bottom > ContainerHeight) return 0
-  if (bottom < ContainerHeight * 0.25) return 1
+  if (bottom < ContainerHeight * 0.75) return 1
 
   return (
-    Math.round(
-      ((ContainerHeight - bottom) / ((ContainerHeight / 4) * 3)) * 1000
-    ) / 1000
+    Math.round(((ContainerHeight - bottom) / (ContainerHeight / 4)) * 1000) /
+    1000
   )
 }
 
 export const caleMoveBetween = (scroll: number, withHeight: number) => {
-  return (Math.round((scroll / withHeight) * 100) / 100) * 50 - 5
+  return (Math.round((scroll / withHeight) * 100) / 100) * 50 - 15
 }
 
 export const calcMoveWith = (
@@ -44,7 +43,7 @@ export const calcMoveWith = (
 ) => {
   if (scroll < changeColorHeight) {
     return (
-      45 -
+      35 -
       (Math.round(
         ((scroll - withHeight) / (changeColorHeight - withHeight)) * 100
       ) /
@@ -52,7 +51,7 @@ export const calcMoveWith = (
         30
     )
   }
-  return 10
+  return 5
 }
 
 export const calcSizeBoa = (
@@ -60,12 +59,12 @@ export const calcSizeBoa = (
   startHeight: number,
   endHeight: number
 ) => {
-  if (scroll > endHeight) return 80
+  if (scroll > endHeight) return 60
 
   return (
     (Math.round(((scroll - startHeight) / (endHeight - startHeight)) * 100) /
       100) *
-    80
+    60
   )
 }
 
@@ -74,16 +73,11 @@ export const calcMoveBoa = (
   endHeight: number,
   hatHeight: number
 ) => {
-  if (scroll < endHeight) return 35
-  if (scroll > hatHeight) return 10
-
-  console.log(
-    "sss",
-    Math.abs(((scroll - endHeight) / (hatHeight - endHeight)) * 100) / 100
-  )
+  if (scroll < endHeight) return 50
+  if (scroll > hatHeight) return 25
 
   return (
-    35 -
+    50 -
     (Math.abs(((scroll - endHeight) / (hatHeight - endHeight)) * 100) / 100) *
       25
   )
